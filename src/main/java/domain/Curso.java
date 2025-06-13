@@ -2,6 +2,8 @@ package domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "TB_CURSO")
 public class Curso {
@@ -19,6 +21,9 @@ public class Curso {
     
     @Column (name = "DESCRICAO", length = 100, nullable = false)
     private String descricao;
+    
+    @OneToMany(mappedBy = "curso")
+    private List<Matricula> matriculas;
     
     public Long getId() {
         return id;
@@ -50,5 +55,13 @@ public class Curso {
     
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+    
+    public List<Matricula> getMatriculas() {
+        return matriculas;
+    }
+    
+    public void setMatriculas(List<Matricula> matriculas) {
+        this.matriculas = matriculas;
     }
 }

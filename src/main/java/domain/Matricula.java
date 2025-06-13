@@ -25,6 +25,25 @@ public class Matricula {
     @Column(name = "STATUS" , nullable = false)
     private String status;
     
+    @ManyToOne
+    @JoinColumn(name = "id_curso_fk", nullable = false,
+            foreignKey = @ForeignKey(name = "fk_curso_matricula"))
+    private Curso curso;
+    
+    @OneToOne
+    @JoinColumn(name = "id_aluno_fk", nullable = false,
+            foreignKey = @ForeignKey(name = "fk_aluno_matricula"))
+    private Aluno aluno;
+    
+    
+    public Curso getCurso() {
+        return curso;
+    }
+    
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -63,5 +82,13 @@ public class Matricula {
     
     public void setDataMatricula(Instant dataMatricula) {
         this.dataMatricula = dataMatricula;
+    }
+    
+    public Aluno getAluno() {
+        return aluno;
+    }
+    
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 }

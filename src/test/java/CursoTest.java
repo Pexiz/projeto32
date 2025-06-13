@@ -20,6 +20,8 @@ public class CursoTest {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("ExemploJPA");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
+        em.createQuery("DELETE FROM Matricula").executeUpdate();
+        em.createQuery("DELETE FROM Aluno").executeUpdate();
         em.createQuery("DELETE FROM Curso").executeUpdate();
         em.getTransaction().commit();
         em.close();
