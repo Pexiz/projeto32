@@ -39,6 +39,14 @@ public class Carro {
         return id;
     }
     
+    public Marca getMarca() {
+        return marca;
+    }
+    
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+    
     public void setId(Long id) {
         this.id = id;
     }
